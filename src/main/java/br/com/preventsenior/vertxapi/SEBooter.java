@@ -6,6 +6,6 @@ public class SEBooter {
 
 	public static void main(String[] args) {
 		Weld weld = new Weld();
-		weld.initialize();		
+		weld.initialize();
 	}
 }

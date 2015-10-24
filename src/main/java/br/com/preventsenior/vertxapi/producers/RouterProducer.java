@@ -1,4 +1,4 @@
-package br.com.preventsenior.vertxapi;
+package br.com.preventsenior.vertxapi.producers;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -8,21 +8,16 @@ import io.vertx.core.Vertx;
 import io.vertx.ext.web.Router;
 
 @ApplicationScoped
-public class RouterCreator {
+public class RouterProducer {
 
 	@Inject
 	private Vertx vertx;
 
-	@Produces	
+	@Produces
+	@ApplicationScoped
 	public Router createRouter() {
 		Router router = Router.router(vertx);
-		vertx.createHttpServer().requestHandler(router::accept).listen(8080, result -> {
-			if (result.succeeded()) {
-				
-			} else {
-
-			}
-		});
+		vertx.createHttpServer().requestHandler(router::accept).listen(8080);
 		return router;
 	}
 	
