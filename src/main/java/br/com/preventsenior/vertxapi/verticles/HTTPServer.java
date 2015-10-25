@@ -22,7 +22,7 @@ public class HTTPServer extends CDIVerticle {
 
 	@Override
 	protected void onVertxStop() {
-
+		
 	}
 
 }

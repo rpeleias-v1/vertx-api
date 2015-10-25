@@ -13,10 +13,10 @@ public class Livro {
 	private String nome;
 	private String isbn;
 	private int quantidadePaginas;
-	
-	public Livro() {	
+
+	public Livro() {
 	}
-	
+
 	public Livro(Long id, String nome, String isbn, int quantidadePaginas) {
 		super();
 		this.id = id;
@@ -47,6 +47,14 @@ public class Livro {
 
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
+	}
+
+	public int getQuantidadePaginas() {
+		return quantidadePaginas;
+	}
+
+	public void setQuantidadePaginas(int quantidadePaginas) {
+		this.quantidadePaginas = quantidadePaginas;
 	}
 
 	@Override
