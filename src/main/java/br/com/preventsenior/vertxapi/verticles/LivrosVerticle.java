@@ -74,6 +74,7 @@ public class LivrosVerticle extends CDIVerticle {
 				context.response().setStatusCode(400).end();
 			} else {
 				assignJsonValueToLivro(jsonObject, livro);
+				dao.update(livro);
 				context.response().putHeader("content-type", "application/json; charset=utf-8")
 						.end(Json.encodePrettily(livro));
 			}
