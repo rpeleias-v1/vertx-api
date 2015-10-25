@@ -13,7 +13,7 @@ public class TesteVerticle extends CDIVerticle {
 
 	@Override
 	protected void onVertxStart() {						
-		router.route("/zaca").handler(routingContext -> {
+		router.route("/rodrigo").handler(routingContext -> {
 			HttpServerResponse response = routingContext.response();
 			response.putHeader("content-type", "text/html").end(
 					"<h1>funciona</h1>");
