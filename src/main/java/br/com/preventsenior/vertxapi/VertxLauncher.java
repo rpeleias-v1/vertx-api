@@ -2,12 +2,13 @@ package br.com.preventsenior.vertxapi;
 
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.Initialized;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Any;
 import javax.enterprise.inject.Instance;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+
+import org.jboss.weld.environment.se.events.ContainerInitialized;
 
 import io.vertx.core.Verticle;
 import io.vertx.core.Vertx;
@@ -21,7 +22,7 @@ public class VertxLauncher {
 	@Any
 	private Instance<Verticle> allDiscoveredVerticles;;
 	
-	public void initVertx(@Observes @Initialized(ApplicationScoped.class) Object object) {
+	public void initVertx(@Observes ContainerInitialized event) {
 		this.vertx = Vertx.vertx();
 		
 		allDiscoveredVerticles.forEach(verticle -> {
